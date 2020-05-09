@@ -4,13 +4,13 @@
       %p.side-header__box__user-name aaa
       %ul.side-header__box__menu
         %li.side-header__box__menu__new-group
-          = link_to {:href => "/groups/new"}
+          = link_to  "/groups/new" do
             %i.fa.fa-edit
         %li.side-header__box__menu__edit-user
-          = link_to {:href => "/users/23209/edit"}
+          = link_to  "/users/23209/edit" do
             %i.fa.fa-cog
   .groups
-    = linl_to {:href => "/groups/29294/messages"}
+    = linl_to  "/groups/29294/messages" do
       .group
         %p.group__group-name a
         %p.group__latest-message まだメッセージがありません
