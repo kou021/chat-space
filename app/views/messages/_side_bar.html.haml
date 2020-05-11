@@ -13,8 +13,10 @@
               = icon('fas', 'cog', class: 'icon')
 
   .groups
-    = link_to  "/groups/29294/messages" do
+    - current_user.groups.each do |group|
       .group
-        %p.group__group-name 
-        %p.group__latest-message まだメッセージがありません
-      
+        = link_to group_messages_path(group) do
+          .group__name
+            = group.name
+          .group__message
+            = group.show_last_message
