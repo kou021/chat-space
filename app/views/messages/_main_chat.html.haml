@@ -1,16 +1,17 @@
 .chat-main
   .main-header
     .main-header__left-box
-      %h2.main-header__left-box__current-group{"data-group_id" => "29294"}
+      %h2.main-header__left-box__current-group{"data-group_id" => "24249"}
         a
       %ul.main-header__left-box__member-list
         Member：
         %li.main-header__left-box__member-list__member aaa
-    = link_to "/groups/29294/edit" do
+    = link_to  edit_group_path(@group) do
       .main-header__edit-btn Edit
   .messages
+    = render @messages
   .form
-    %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/29294/messages", :enctype => "multipart/form-data", :method => "post"}
+    = form_for [@group, @message] do |imput|
       %input{:name => "utf8", :type => "hidden", :value => "✓"}/
       %input{:name => "authenticity_token", :type => "hidden", :value => "DswpAMdgsTsN3TR+IOnlpbhdrLbOHlF0Ja4E62NcHSjzx7vUXfv3yRc6iYk/nV0ReNhgBzO7PpCHz/cHPwALAw=="}/
       .input-box
