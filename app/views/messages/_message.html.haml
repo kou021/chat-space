@@ -1,12 +1,11 @@
-
-        .messages
-        .form
-          %form#new_message.new_message{"accept-charset" => "UTF-8", :action => "/groups/29553/messages", :enctype => "multipart/form-data", :method => "post"}
-            %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-            %input{:name => "authenticity_token", :type => "hidden", :value => "oRy1QE94Te1NfMrPi4UsOeRUVsCr+FDSCHLv79Vu/L1TnQlTdjmseBnjtTdlVczgjHDP8spahMFrM109qq+keA=="}/
-            .input-box
-              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-              %label.input-box__image{:for => "message_image"}
-                %i.fa.fa-image
-                %input#message_image.input-box__image__file{:name => "message[image]", :type => "file"}/
-            %input.submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+.message
+  .upper-message
+    .upper-message__user-name
+      = message.user.name
+    .upper-message__date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .lower-message
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content
+    = image_tag message.image.url, class: 'input-box__image' if message.image.present?
