@@ -16,7 +16,7 @@ $(function(){
              ${message.content}
            </p>
          </div>
-         <img src=${message_image} >
+         <img src=${message.image} >
        </div>`
      return html;
    } else {
@@ -44,12 +44,12 @@ $('.js-form').on('submit', function(e){
  var formData = new FormData(this);
  var url = $(this).attr('action')
  $.ajax({
-   url: url,
-   type: "POST",
-   data: formData,
-   dataType: 'json',
-   processData: false,
-   contentType: false
+  url: "api/messages",
+  type: 'GET',
+  data: {id: last_message_id},
+  dataType: 'json'
+  processData: false,
+  contentType: false
  })
   .done(function(data){
     var html = buildHTML(data);
