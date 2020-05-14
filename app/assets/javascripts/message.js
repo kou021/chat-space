@@ -8,7 +8,7 @@ $(function(){
              ${message.user_name}
            </div>
            <div class="upper-message__date">
-             ${message.date}
+             ${message.created_at}
            </div>
          </div>
          <div class="lower-message">
@@ -27,7 +27,7 @@ $(function(){
              ${message.user_name}
            </div>
            <div class="upper-message__date">
-             ${message.date}
+             ${message.created_at}
            </div>
          </div>
          <div class="lower-message">
@@ -39,15 +39,15 @@ $(function(){
      return html;
    };
  }
-$('.js-form').on('submit', function(e){
+$('#new_message').on('submit', function(e){
  e.preventDefault();
  var formData = new FormData(this);
  var url = $(this).attr('action')
  $.ajax({
-  url: "api/messages",
-  type: 'GET',
-  data: {id: last_message_id},
-  dataType: 'json'
+  url: url,
+  type: 'POST',
+  data: formData,
+  dataType: 'json',
   processData: false,
   contentType: false
  })
