@@ -58,8 +58,15 @@ $('#new_message').on('submit', function(e){
     $('form')[0].reset();
   })
    .fail(function(){
-     alert('error');
+     alert('メッセージを入力してください');
    });
    return false;
  });
+ 
+
+
+
+
+
+ 
 });
